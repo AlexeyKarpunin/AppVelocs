@@ -1,0 +1,16 @@
+.left-menu {
+    max-width: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #003B72;
+    color: #FFFFFF;
+}
+
+.left-menu__logo {
+    padding: 20px 0 20px 20px;
+}
+
+.left-menu__item svg {
+    fill: white;
+}
