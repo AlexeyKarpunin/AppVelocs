@@ -1,0 +1,18 @@
+.doctors {
+    height: 625px;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-width: 525px;
+    padding: 5px 0 0 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px; 
+    background-color: #EBE7FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #003B72;
+    border-radius: 5px;
+    height: 20px;
+}

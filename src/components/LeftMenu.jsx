@@ -1,7 +1,16 @@
 
 import React from 'react';
-// import Heart from '../assets/imges/mini-heart.svg';
-import {ReactComponent as Heart} from '../assets/imges/mini-heart.svg';
+
+/* imeges */
+import Heart from '../assets/imges/mini-heart.svg';
+import DoctorEquipment from '../assets/imges/doctor-equipment.svg';
+import Message from '../assets/imges/message.svg';
+import Form from '../assets/imges/form.svg';
+import Book from '../assets/imges/book.svg'
+import Help from '../assets/imges/help.svg';
+import Logo from '../assets/imges/logo.png';
+/*     */
+
 export default function Leftmenu () {
     return (
         <div className="left-menu">
@@ -10,33 +19,40 @@ export default function Leftmenu () {
               <div className="left-menu__logo">Логотип</div>
 
               <ul className="left-menu__list">
-                  <li className="left-menu__item">
-                      {/* <img src={Heart}></img> */}
+                  <li className="left-menu__item left-menu_active">
                       <Heart />
-                      Профиль
+                      <span>Профиль</span>
                   </li>
                   <li className="left-menu__item">
-                      Врачи и клиники
+                      <DoctorEquipment />
+                      <span>Врачи и клиники</span>
                   </li>
                   <li className="left-menu__item">
-                      Сообщения
+                      <Message />
+                      <span>Сообщения</span>
                   </li>
                   <li className="left-menu__item">
-                      Тестирование
+                      <Form />
+                      <span>Тестирование</span>
                   </li>
                   <li className="left-menu__item">
-                      Полезно знать
-                  </li>
-                  <li className="left-menu__item">
-                      баттон
+                      <Book />
+                      <span>Полезно знать</span>
                   </li>
               </ul>
-
+              <div className="left-menu__btn">
+                <button>Подать заявку</button>
+              </div>
             </div>
 
             <div>
-                <div>Help</div>
-                <div>AppVelox</div>
+                <div className="left-menu__item"> 
+                  <Help /> 
+                  <span>Help</span>
+                </div>
+                <div className="left-menu__logo--down">
+                    <img src={Logo}></img>
+                </div>
             </div>
         </div>
     )

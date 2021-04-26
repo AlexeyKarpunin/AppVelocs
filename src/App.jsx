@@ -17,7 +17,7 @@ export default function App () {
       <Router>
         <Switch>
           <Route exact path='/' component={PersonalArea}/>
-          <Route path='/doctors' component={ChooseDoctors}/>
+          <Route path='/profile/doctors' component={ChooseDoctors}/>
         </Switch>
       </Router>
     )

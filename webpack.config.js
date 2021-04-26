@@ -45,7 +45,15 @@ module.exports = {
             use: [MiniCssExtractPlugin.loader, 'css-loader'],
           },
           {
-            test: /\.(jpg|png|svg|gif)$/,
+            test: /\.json$/,
+            loader: 'json-loader'
+          },
+          {
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+          },
+          {
+            test: /\.(jpg|png|gif)$/,
             use: ['file-loader']
           },
           {
