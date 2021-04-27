@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
 import {
     HashRouter as Router,
@@ -12,13 +12,23 @@ import ChooseDoctors from './pages/ChooseDoctors';
 
 
 export default function App () {
+
+  const [doctors, setDoctors] = useState(undefined);
+
+  useEffect( () => {
+    fetch('./src/json/yourDoctors.json').then((res) => res.json()).then( (data) => {
+     setDoctors(data)
+    });
+  }, [])
   
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={PersonalArea}/>
-          <Route path='/profile/doctors' component={ChooseDoctors}/>
+          <Route exact path='/' render={(props) => <PersonalArea {...props} doctorsList={doctors} />} /> 
+          <Route path='/profile/doctors' render={(props) => <ChooseDoctors {...props} doctorsList={doctors} />}/>
         </Switch>
       </Router>
     )
   }
+
+  // component={<PersonalArea doctorsList={doctors} />}

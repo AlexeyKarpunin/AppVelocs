@@ -1,8 +1,12 @@
 .doctors {
+    display: flex;
+}
+
+.doctor--wrraper {
     height: 625px;
     overflow: hidden;
     overflow-y: scroll;
-    max-width: 525px;
+    width: 525px;
     padding: 5px 0 0 0;
 }
 

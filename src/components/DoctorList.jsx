@@ -2,15 +2,9 @@ import React, { useEffect, useState } from "react";
 import DoctorCard from '../components/DoctorCard';
 import { Link } from 'react-router-dom'
 
-export default function DoctorList ({line, full}) {
-    const [doctors, setDoctors] = useState(undefined);
+export default function DoctorList ({line, full, doctors}) {
 
-    useEffect( () => {
-      fetch('./src/json/yourDoctors.json').then((res) => res.json()).then( (data) => {
-          setDoctors(data);
-      });
-    }, [])
-
+    
     return (
         <div className="doctors--container" style={{display: `${ line ? 'flex' : ''}`}}>
             {doctors ? <DoctorCardParser list={doctors} full={full} /> : <div>... loading</div>}

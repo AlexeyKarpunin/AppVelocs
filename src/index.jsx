@@ -9,5 +9,6 @@ import './css/style';
 import './css/left-menu';
 import './css/profile';
 import './css/doctors-list';
+import './css/calendar';
   
 render(<App />, document.getElementById('root'));
