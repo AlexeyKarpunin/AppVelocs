@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import yourDoctors from './json/yourDoctors.js';
 
 import {
     HashRouter as Router,
@@ -13,8 +14,8 @@ import ChooseDoctors from './pages/ChooseDoctors';
 
 export default function App () {
 
-  const [doctors, setDoctors] = useState(undefined);
-
+  const [doctors, setDoctors] = useState(yourDoctors);
+  
   useEffect( () => {
     fetch('./src/json/yourDoctors.json').then((res) => res.json()).then( (data) => {
      setDoctors(data)
