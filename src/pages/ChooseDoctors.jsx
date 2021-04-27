@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import LeftMenu from '../components/LeftMenu';
 import ProfileHeader from '../components/ProfileHeader';
 import DoctorList from '../components/DoctorList';
@@ -11,7 +11,8 @@ export default function ChooseDoctors ({doctorsList}) {
   const [value, onChange] = useState(new Date());
   const [notes, setNotes] = useState(new Map());
   const [renderCalendar, setRenderCalendar] = useState(false)
-  
+  const calendarRef = useRef();
+
   useEffect( () => {
     if (!doctorsList) return;
 
@@ -39,16 +40,16 @@ export default function ChooseDoctors ({doctorsList}) {
   function myFormatDay(locale, date) {
     const dateKnow= new Date()
     const today = dateKnow.getDate();
-    const mounth = dateKnow.getMonth();
+    const month = dateKnow.getMonth();
 
     const day = date.getDate();
-    const lastMounth = date.getMonth();
+    const lastmonth = date.getMonth();
     
     const note = checkNotes(date);
 
-    if (lastMounth > mounth) return <div className="my-date-day">{day}</div>
+    if (lastmonth > month) return <div className="my-date-day">{day}</div>
 
-    const formatClass = `my-date-day ${lastMounth < mounth || day < today ? 'my-date-day_disable' : ''} ${note ? 'my-date-day__notes' : null}`;
+    const formatClass = `my-date-day ${lastmonth < month || day < today ? 'my-date-day_disable' : ''} ${note ? 'my-date-day__notes' : null}`;
 
     return <div className={formatClass} data-notes={note}>{day}</div>
   }
@@ -70,7 +71,6 @@ export default function ChooseDoctors ({doctorsList}) {
                         navigationLabel={({ date, label, locale, view }) => `${label.replace(/г.$/, '')}`}
                         formatDay={myFormatDay}
                         showNeighboringMonth={false}
-                        onClickYear={(value, event) => alert('Clicked year: ', value)}
                   /> : <div>... loading</div> }
                 </div>
        </div>
